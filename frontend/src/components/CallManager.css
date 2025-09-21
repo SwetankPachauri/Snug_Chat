@@ -1,0 +1,415 @@
+ 
+.call-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  color: white;
+}
+
+ 
+.incoming-call-modal {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: slideIn 0.3s ease-out;
+}
+
+.caller-info {
+  margin-bottom: 30px;
+}
+
+.caller-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 auto 20px;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.caller-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.caller-info p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.incoming-call-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.accept-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #00c851 0%, #007e33 100%);
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accept-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 200, 81, 0.4);
+}
+
+.reject-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reject-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
+}
+
+/* Call interface */
+.call-interface {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Video call container */
+.video-call {
+  .video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #000;
+  }
+  
+  .remote-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #1a1a1a;
+  }
+  
+  .local-video {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: #2a2a2a;
+    z-index: 10;
+  }
+  
+  .call-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+}
+
+ 
+.voice-call {
+  .voice-call-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .participant-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: white;
+    animation: pulse 2s infinite;
+  }
+}
+
+.call-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.participant-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.call-status {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 5px;
+}
+
+.connection-status {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+ 
+.call-controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+.voice-call .call-controls {
+  position: static;
+  transform: none;
+  margin-top: 40px;
+}
+
+.control-btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.control-btn.muted {
+  background: rgba(255, 71, 87, 0.8);
+}
+
+.control-btn.disabled {
+  background: rgba(255, 71, 87, 0.8);
+}
+
+.control-btn.end-call {
+  background: linear-gradient(135deg, #ff4757 0%, #ff3742 100%);
+  width: 70px;
+  height: 70px;
+  font-size: 1.8rem;
+}
+
+.control-btn.end-call:hover {
+  background: linear-gradient(135deg, #ff3742 0%, #ff2838 100%);
+  box-shadow: 0 8px 25px rgba(255, 71, 87, 0.4);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .incoming-call-modal {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+  
+  .caller-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .incoming-call-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .accept-btn, .reject-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .video-call .local-video {
+    width: 120px;
+    height: 90px;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .video-call .call-info {
+    top: 10px;
+    left: 10px;
+    padding: 10px 15px;
+  }
+  
+  .voice-call .participant-avatar {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+  }
+  
+  .call-controls {
+    bottom: 20px;
+    gap: 15px;
+  }
+  
+  .control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .control-btn.end-call {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .call-info h3 {
+    font-size: 1.4rem;
+  }
+  
+  .participant-name {
+    font-size: 1rem;
+  }
+  
+  .call-status {
+    font-size: 0.9rem;
+  }
+}
+
+/* Call button styles for chat interface */
+.call-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.call-btn {
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.call-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.call-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.call-btn.voice-call {
+  color: #00c851;
+  border-color: rgba(0, 200, 81, 0.3);
+}
+
+.call-btn.voice-call:hover {
+  background: rgba(0, 200, 81, 0.2);
+  color: #00c851;
+}
+
+.call-btn.video-call {
+  color: #667eea;
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.call-btn.video-call:hover {
+  background: rgba(102, 126, 234, 0.2);
+  color: #667eea;
+}

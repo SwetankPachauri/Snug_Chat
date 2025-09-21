@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "id": "1758292815383",
+      "username": "kali",
+      "password": "$2b$10$YYLqV9lr5/ttQaA2D1E4GeDoxYsaz/rvKG.xFY72QedHrq5hPE3Qi",
+      "createdAt": "2025-09-19T14:40:15.383Z"
+    },
+    {
+      "id": "1758302246232",
+      "username": "mayank",
+      "password": "$2b$10$gvNGii1nFFJZuEWW8z0/uegyT/ZwHElb0eCeE.t6XI8bbE.scHNiG",
+      "createdAt": "2025-09-19T17:17:26.232Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": "1758301066586",
+      "username": "kali",
+      "userId": "1758292815383",
+      "content": "😃yo",
+      "timestamp": "2025-09-19T16:57:46.586Z"
+    },
+    {
+      "id": "1758384555986",
+      "username": "kali",
+      "userId": "1758292815383",
+      "content": "",
+      "type": "image",
+      "imageUrl": "/uploads/1758384555965-825382248.png",
+      "timestamp": "2025-09-20T16:09:15.986Z"
+    },
+    {
+      "id": "1758384591322",
+      "username": "mayank",
+      "userId": "1758302246232",
+      "content": "nice",
+      "type": "text",
+      "imageUrl": null,
+      "timestamp": "2025-09-20T16:09:51.322Z"
+    }
+  ],
+  "privateMessages": [
+    {
+      "id": "1758355454285",
+      "senderId": "1758292815383",
+      "senderUsername": "kali",
+      "receiverId": "1758302246232",
+      "receiverUsername": "mayank",
+      "content": "hello",
+      "timestamp": "2025-09-20T08:04:14.285Z"
+    }
+  ]
+}
